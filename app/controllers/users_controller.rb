@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @user = User.includes(:stories).find(helpers.current_user.id)
-        
+        #incluir en User para mostrar las historios que se encuentre(con el id de cada usuario que ahora es mi current user por el metodo helper)
     end
 
     def new

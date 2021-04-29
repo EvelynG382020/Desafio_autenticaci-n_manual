@@ -20,7 +20,7 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
 
     def create 
         @story = Story.new(story_params)
-        @story.user = helpers.current_user
+        @story.user = helpers.current_user #aca le indico al usuario de la historia es igual al usuario current user
         respond_to do |format|
             if @story.save
                 format.html { redirect_to @story, notice: 'Story was successfully created.' }
