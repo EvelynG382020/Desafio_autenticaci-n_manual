@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<%= root_path %>">PicStory</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user-circle-o" style="font-size:24px""></i>
+                        <span class="caret"></span>
+                    </a>
+                    <!-- ¡Pending implementation! Should work toggling between sign_in and sign_out -->
+                    <ul class="dropdown-menu">
+                        <% if current_user %>
+                        <li><%=link_to 'Create PicStory', new_story_path %></li>
+                        <li><%=link_to 'My PicStories', stories_path %></li>
+                        <li><a href="#">'My Profile'</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><%= link_to('Sign out', session_path(current_user), method: :delete) %></li>
+                    <% else %>
+                        <li><%= link_to('Sign in', new_session_path) %></li>
+                        <li><%= link_to('Create new User', new_user_path) %></li>
+                    <% end %>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

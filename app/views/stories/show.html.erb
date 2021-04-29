@@ -1,0 +1,47 @@
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <%= image_tag(@story.picture, style: "max-width: 100%; border-radius: 10px;") if @story.picture? %>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1><%= @story.title %></h1>
+                <small><%= time_ago_in_words(@story.created_at) %> ago</small>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <p><%= @story.content %></p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <p><%= @story.user.name %></p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-2">
+                <p><%= link_to 'Edit', edit_story_path(@story), class: "btn btn-warning btn-sm" %> 
+                <%= link_to 'Back', stories_path, class: "btn btn-info btn-sm" %></p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
